@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony GODART</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="./img/icon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+    <script src="utils/themeSwitcher.js"></script>
+    <script src="utils/coordinates.js"></script>
+    <script src="utils/copyright.js"></script>
+    <script src="utils/infosDisplayer.js"></script>
+    <script src="utils/textsHandler.js"></script>
+</head>
+<body data-theme="light" data-language="fr">
+    <header>
+        <img id="banner" data-theme="light" src="" alt="Bannière de fond du header">
+        <div id="picture-container">
+            <figure id="profile-picture-container">
+                <img id="profile-picture" src="./img/profilepic.webp" alt="Photo de profil d'Anthony GODART">
+                <figcaption>Anthony GODART</figcaption>
+            </figure>
+            <h1 id="main-title" data-translate-key="main-title">Développeur backend JS/PHP</h1>    
+        </div>
+        <div id="profile-infos">
+            <div id="displayer">
+                <h2>Contact</h2>
+            </div>
+            <nav id="coordinates">
+                <a id="phone-number" href=""></a>
+                <a id="email" href=""></a>
+                <a id="linkedin" data-translate-key="linkedin-link" href=""></a>
+                <a id="github" data-translate-key="github-link" href=""></a>
+            </nav>
+        </div>
+        <ul id="switches">
+            <li id="theme-switch" data-mode="light"></li>
+            <li id="language-switch"></li>
+        </ul>
+    </header>
+    <main>
+        <article id="warning">
+            <h3 id="warning-title" data-translate-key="warning-title" class="opener"></h3>
+            <p id="warning-content" data-translate-key="warning-content" data-status="hidden"></p>
+        </article>
+        <article id="presentation">
+            <h3 id="presentation-title" data-translate-key="presentation-title" class="opener"></h3>
+            <p id="presentation-content" data-translate-key="presentation-content" data-status="hidden"></p>
+        </article>
+        <article id="education">
+            <h3 id="education-title" data-translate-key="education-title" class="opener"></h3>
+            <p id="education-content" data-translate-key="education-content" data-status="hidden"></p>
+        </article>
+        <article id="experience">
+            <h3 id="experience-title" data-translate-key="experience-title" class="opener"></h3>
+            <p id="experience-content" data-translate-key="experience-content" data-status="hidden"></p>
+        </article>
+        <article id="education-projects">
+            <h3 id="education-projects-title" data-translate-key="education-projects-title" class="opener"></h3>
+            <p id="education-projects-content" data-translate-key="education-projects-content" data-status="hidden"></p>
+        </article>
+        <article id="personal-projects">
+            <h3 id="personal-projects-title" data-translate-key="personal-projects-title" class="opener"></h3>
+            <p id="personal-projects-content" data-translate-key="personal-projects-content" data-status="hidden"></p>
+        </article>
+    </main>
+    <footer>
+        <p id="copyright"></p>
+    </footer>
+</body>
+</html>
