@@ -1,7 +1,7 @@
 const lightBanner = "/img/banner-light.webp";
 const darkBanner = "/img/banner-dark.webp";
-const moonIcon = '<img src="../img/moon.ico" alt="Moon icon">';
-const sunIcon = '<img src="../img/sun.ico" alt="Sun icon">';
+const moonIcon = '<img src="./img/moon.ico" alt="Moon icon">';
+const sunIcon = '<img src="./img/sun.ico" alt="Sun icon">';
 
 
 let currentTheme;

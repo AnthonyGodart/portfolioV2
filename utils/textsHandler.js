@@ -101,8 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const openers = [...document.getElementsByClassName('opener')];
-    const englishFlag = '<img src="../img/englishflag.ico" alt="English Flag">';
-    const frenchFlag = '<img src="../img/frenchflag.ico" alt="French Flag">';
+    const englishFlag = '<img src="./img/englishflag.ico" alt="English Flag">';
+    const frenchFlag = '<img src="./img/frenchflag.ico" alt="French Flag">';
     let currentLanguage;
 
     const getTranslation = function (translationKey) {
