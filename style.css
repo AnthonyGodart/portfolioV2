@@ -70,7 +70,10 @@ header>img {
         border-radius: 40%;
     }
 
-    #contact-hider{
+    #profile-infos{
+        width: 40%;
+    }
+    #displayer{
         position: relative;
         display: flex;
         flex-direction: row;
@@ -104,7 +107,7 @@ header>img {
         padding: 10px;
         top: 0;
         justify-content: flex-end;
-        width: 25%;
+        width: 20%;
     }
 
     #theme-switch>img, #language-switch>img {
@@ -131,17 +134,6 @@ main {
     main article h3 {
         text-align: center;
         padding: 10px;
-    }
-    #presentation {
-        position: relative;
-    }
-
-    #education{
-        position: relative;
-    }
-
-    #experience {
-        position: relative;
     }
 
 #copyright{
