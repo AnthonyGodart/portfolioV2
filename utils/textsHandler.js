@@ -53,7 +53,7 @@ const frenchTranslations = {
     "personal-projects-content": "En cours de rédaction...",
 };
 const englishTranslations = {
-    "main-title": "Backend developer JS/PHP",
+    "main-title": "Backend dev JS/PHP",
     "linkedin-link": "To my LinkedIn profile...",
     "github-link": "To my GitHub account...",
     "warning-title": "Warning...",
@@ -99,12 +99,25 @@ const englishTranslations = {
     "personal-projects-content": "In progress...",
 };
 
+// Building functions
 
 let currentLanguage;
+
+const checkStoredLanguage = function() {
+    if(!sessionStorage.getItem('currentLanguage')){
+        sessionStorage.setItem('currentLanguage', 'fr');
+        currentLanguage = sessionStorage.getItem('currentLanguage');
+        updateTranslation();
+    } else {
+        currentLanguage = sessionStorage.getItem('currentLanguage');
+        updateTranslation();
+    };
+}
 
 const getTranslation = function (translationKey) {
     return currentLanguage === 'fr' ? frenchTranslations[translationKey] : englishTranslations[translationKey];
 }
+
 const updateTranslation = function() {
     let elements = document.querySelectorAll('[data-translate-key]');
     elements.forEach(element => {
@@ -115,7 +128,7 @@ const updateTranslation = function() {
 
 const switchLanguage = function() {
     currentLanguage = sessionStorage.getItem('currentLanguage');
-    document.getElementById('language-switch').innerHTML = showLanguageIcon(currentLanguage);
+    this.innerHTML = showLanguageIcon(currentLanguage);
     currentLanguage = (currentLanguage === "fr" ?  "en" : "fr");
     updateTranslation();
     sessionStorage.setItem("currentLanguage", currentLanguage);
@@ -128,23 +141,14 @@ const showLanguageIcon = function(language) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    const openers = [...document.getElementsByClassName('opener')];
 
-    if(!sessionStorage.getItem('currentLanguage')){
-        sessionStorage.setItem('currentLanguage', 'fr');
-        currentLanguage = sessionStorage.getItem('currentLanguage');
-        updateTranslation();
-    } else {
-        currentLanguage = sessionStorage.getItem('currentLanguage');
-        updateTranslation();
-    };
+    checkStoredLanguage();
 
     const switcher = document.getElementById('language-switch');
     switcher.innerHTML = currentLanguage === "fr" ? englishFlag : frenchFlag;
-
     switcher.addEventListener('click', switchLanguage);
 
+    const openers = [...document.getElementsByClassName('opener')];
     openers.forEach(opener => {
         const container = opener.parentElement;
         const paragraphs = container.querySelectorAll('p[data-translate-key]');
