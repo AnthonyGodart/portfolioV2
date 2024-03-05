@@ -98,17 +98,18 @@ const englishTranslations = {
     "personal-projects-title": "Personal projects",
     "personal-projects-content": "In progress...",
 };
+
+
 let currentLanguage;
 
 const getTranslation = function (translationKey) {
     return currentLanguage === 'fr' ? frenchTranslations[translationKey] : englishTranslations[translationKey];
 }
-const updateTranslation = function(elements) {
+const updateTranslation = function() {
+    let elements = document.querySelectorAll('[data-translate-key]');
     elements.forEach(element => {
         const translationKey = element.dataset.translateKey;
-        if(!element.dataset.status){
-            element.innerText = getTranslation(translationKey);
-        }          
+        element.innerText = getTranslation(translationKey);
     });
 }
 
@@ -116,8 +117,8 @@ const switchLanguage = function() {
     currentLanguage = sessionStorage.getItem('currentLanguage');
     document.getElementById('language-switch').innerHTML = showLanguageIcon(currentLanguage);
     currentLanguage = (currentLanguage === "fr" ?  "en" : "fr");
+    updateTranslation();
     sessionStorage.setItem("currentLanguage", currentLanguage);
-    updateTranslation(elements);
 }
 
 const englishFlag = '<img src="./img/englishflag.ico" alt="English Flag">';
@@ -126,8 +127,6 @@ const showLanguageIcon = function(language) {
     return language === "fr" ? frenchFlag : englishFlag;
 }
 
-// Initialize animation variables
-
 document.addEventListener('DOMContentLoaded', () => {
     
     const openers = [...document.getElementsByClassName('opener')];
@@ -135,13 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!sessionStorage.getItem('currentLanguage')){
         sessionStorage.setItem('currentLanguage', 'fr');
         currentLanguage = sessionStorage.getItem('currentLanguage');
+        updateTranslation();
     } else {
         currentLanguage = sessionStorage.getItem('currentLanguage');
+        updateTranslation();
     };
-
-    let elements = document.querySelectorAll('[data-translate-key]');
-
-    updateTranslation(elements);
 
     const switcher = document.getElementById('language-switch');
     switcher.innerHTML = currentLanguage === "fr" ? englishFlag : frenchFlag;
