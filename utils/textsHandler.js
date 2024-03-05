@@ -100,7 +100,6 @@ const englishTranslations = {
 };
 
 // Building functions
-
 let currentLanguage;
 
 const checkStoredLanguage = function() {
@@ -153,58 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = opener.parentElement;
         const paragraphs = container.querySelectorAll('p[data-translate-key]');
         paragraphs.forEach(paragraph => {
-            paragraph.style.height ='0';
-            paragraph.style.overflow = 'hidden';
             paragraph.innerText = getTranslation(paragraph.dataset.translateKey);
-        });
-        
-        let isOpen = false;
-        let isAnimating = false;
-
-        opener.addEventListener('mouseenter', function() {
-            if (!isOpen && !isAnimating) {
-                isAnimating = true;
-                isOpen = true;
-                paragraphs.forEach(paragraph => {
-                    const maxHeight = paragraph.scrollHeight;
-                    let height = 0;
-                    const animationDuration = 500;
-                    const intervalDuration = 10;
-                    
-                    const intervalId = setInterval(function() {
-                        height += maxHeight / (animationDuration / intervalDuration);
-                        paragraph.style.height = height + 'px';
-                        
-                        if (height >= maxHeight) {
-                            clearInterval(intervalId);
-                            isAnimating = false;
-                        }
-                    }, intervalDuration);
-                });
-            }
-        });
-    
-        container.addEventListener('mouseleave', function() {
-            if (isOpen && !isAnimating) {
-                isAnimating = true;
-                isOpen = false;
-                paragraphs.forEach(paragraph => {
-                    let height = paragraph.scrollHeight;
-                    const animationDuration = 500;
-                    const intervalDuration = 10;
-                    
-                    const intervalId = setInterval(function() {
-                        height -= paragraph.scrollHeight / (animationDuration / intervalDuration);
-                        paragraph.style.height = height + 'px';
-                        
-                        if (height <= 0) {
-                            clearInterval(intervalId);
-                            paragraph.style.height = '0';
-                            isAnimating = false;
-                        }
-                    }, intervalDuration);
-                });
-            }
         });
     });    
 });

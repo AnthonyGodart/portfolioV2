@@ -5,24 +5,6 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-[data-theme="light"] {
-    --bg-color: #FFFFFF;
-    --article-bg-color: #cccccc7f;
-    --bg-transparency: #ffffff7f;
-    --bg-reverse-transparency: #1b36367f;
-    --link-shadow: 2px 2px #b9b5b5;
-    --font-color: #000000;
-}
-
-[data-theme="dark"] {
-    --bg-color: #1b3636;
-    --bg-transparency: #1b36367f;
-    --article-bg-color: #2454334b;
-    --bg-reverse-transparency: #ffffff7f;
-    --link-shadow: 2px 2px #ffffff7f;
-    --font-color: #FFFFFF;
-}
-
 body {
     margin: 0 auto;
     background-color: var(--bg-color);
@@ -30,6 +12,22 @@ body {
     transition: 500ms ease-in-out;
     width: 100vw;
     max-width: 1250px;
+}
+.light {
+    --bg-color: #FFFFFF;
+    --article-bg-color: #cccccc7f;
+    --bg-transparency: #ffffff7f;
+    --bg-reverse-transparency: #1b36367f;
+    --link-shadow: 2px 2px #b9b5b5;
+    --font-color: #000000;
+}
+.dark {
+    --bg-color: #1b3636;
+    --bg-transparency: #1b36367f;
+    --article-bg-color: #2454334b;
+    --bg-reverse-transparency: #ffffff7f;
+    --link-shadow: 2px 2px #ffffff7f;
+    --font-color: #FFFFFF;
 }
 
 header {
@@ -40,7 +38,6 @@ header {
     gap: 50px;
     margin: 5px;
 }
-
 header>img {
     position: absolute;
     top: 0;
@@ -83,11 +80,20 @@ header>img {
         padding: 20px;
         align-items: center;
     }
+    header div nav {
+        height: auto;
+        max-height: 0;
+        transition: max-height 800ms linear;
+        overflow: hidden;
+    }
+    header div:hover nav {
+        max-height: 300px;
+    }
     #coordinates {
         display: flex;
         flex-direction: column;
         border-radius: 10px;
-        box-shadow: 30px, black;
+        padding: 3px;
         gap: 5px;
         z-index: 1;
     }
@@ -134,6 +140,15 @@ main {
     main article h3 {
         text-align: center;
         padding: 10px;
+    }
+    main article p {
+        height: auto;
+        max-height: 0;
+        transition: max-height 1000ms linear;
+        overflow: hidden;
+    }
+    main article:hover p {
+        max-height: 800px;
     }
 
 #copyright{
