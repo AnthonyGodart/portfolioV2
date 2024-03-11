@@ -1,0 +1,10 @@
+<article>
+    <h4 id="education-projects-content-title" data-translate-key="education-projects-content-title">Project title</h4>
+    <p id="education-projects-content-description" data-translate-key="education-projects-content-description">Project description</p>
+    <nav>
+        <ul>
+            <li> <a id="education-projects-content-link" href=""></a> </li>
+            <li> <a id="education-projects-content-repo" href=""></a> </li>
+        </ul>
+    </nav>
+</article>

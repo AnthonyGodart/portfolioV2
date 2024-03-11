@@ -6,7 +6,8 @@
     <title>Anthony GODART</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./img/icon.ico">
-    <link rel="api" url="https://sunrise-sunset.org/api">
+    <link rel="api" href="https://sunrise-sunset.org/api">
+    <script src="utils/translations.js"></script>
     <script src="utils/themeSwitcher.js"></script>
     <script src="utils/coordinates.js"></script>
     <script src="utils/copyright.js"></script>
@@ -41,30 +42,30 @@
         </ul>
     </header>
     <main>
-        <article id="warning">
+        <section id="warning">
             <h3 id="warning-title" data-translate-key="warning-title" class="opener"></h3>
             <p id="warning-content" data-translate-key="warning-content" data-status="hidden"></p>
-        </article>
-        <article id="presentation">
+        </section>
+        <section id="presentation">
             <h3 id="presentation-title" data-translate-key="presentation-title" class="opener"></h3>
             <p id="presentation-content" data-translate-key="presentation-content" data-status="hidden"></p>
-        </article>
-        <article id="education">
+        </section>
+        <section id="education">
             <h3 id="education-title" data-translate-key="education-title" class="opener"></h3>
             <p id="education-content" data-translate-key="education-content" data-status="hidden"></p>
-        </article>
-        <article id="experience">
+        </section>
+        <section id="experience">
             <h3 id="experience-title" data-translate-key="experience-title" class="opener"></h3>
             <p id="experience-content" data-translate-key="experience-content" data-status="hidden"></p>
-        </article>
-        <article id="education-projects">
+        </section>
+        <section id="education-projects">
             <h3 id="education-projects-title" data-translate-key="education-projects-title" class="opener"></h3>
-            <p id="education-projects-content" data-translate-key="education-projects-content" data-status="hidden"></p>
-        </article>
-        <article id="personal-projects">
+            <div id="education-projects-content" data-translate-key="education-projects-content" data-status="hidden"></div>
+        </section>
+        <section id="personal-projects">
             <h3 id="personal-projects-title" data-translate-key="personal-projects-title" class="opener"></h3>
-            <p id="personal-projects-content" data-translate-key="personal-projects-content" data-status="hidden"></p>
-        </article>
+            <div id="personal-projects-content" data-translate-key="personal-projects-content" data-status="hidden"></div>
+        </section>
     </main>
     <footer>
         <p id="copyright"></p>

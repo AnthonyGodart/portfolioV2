@@ -15,7 +15,7 @@ body {
 }
 .light {
     --bg-color: #FFFFFF;
-    --article-bg-color: #cccccc7f;
+    --section-bg-color: #cccccc7f;
     --bg-transparency: #ffffff7f;
     --bg-reverse-transparency: #1b36367f;
     --link-shadow: 2px 2px #b9b5b5;
@@ -24,7 +24,7 @@ body {
 .dark {
     --bg-color: #1b3636;
     --bg-transparency: #1b36367f;
-    --article-bg-color: #2454334b;
+    --section-bg-color: #2454334b;
     --bg-reverse-transparency: #ffffff7f;
     --link-shadow: 2px 2px #ffffff7f;
     --font-color: #FFFFFF;
@@ -159,24 +159,24 @@ main {
     margin: 5px;
     align-items: center;
 }
-    main article {
-        background-color: var(--article-bg-color);
+    main section {
+        background-color: var(--section-bg-color);
         padding: 20px;
         box-shadow: var(--link-shadow);
         border-radius: 10px;
         width: 80vw;
     }
-    main article h3 {
+    main section h3 {
         text-align: center;
         padding: 10px;
     }
-    main article p {
+    main section p, main section div {
         height: auto;
         max-height: 0;
         transition: max-height 1000ms linear;
         overflow: hidden;
     }
-    main article:hover p {
+    main section:hover p,  main section:hover div {
         max-height: 800px;
     }
 
