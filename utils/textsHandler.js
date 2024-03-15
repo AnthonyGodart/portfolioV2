@@ -41,6 +41,8 @@ function createProjectCard(project) {
     const link = document.createElement('a');
     link.innerText = project.linkText[currentLanguage];
     link.href = project.repoLink;
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noreferrer");
     card.appendChild(link);
 
     return card;
