@@ -195,6 +195,9 @@ main {
     flex-direction: column;
     gap: 10px;
 }
+.project-card>a {
+    color: var(--font-color);
+}
 
 #copyright{
     width: 100%;
