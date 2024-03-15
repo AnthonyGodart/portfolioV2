@@ -6,9 +6,11 @@ const checkStoredLanguage = function() {
         sessionStorage.setItem('currentLanguage', 'fr');
         currentLanguage = sessionStorage.getItem('currentLanguage');
         updateTranslation();
+        updateProjectCards();
     } else {
         currentLanguage = sessionStorage.getItem('currentLanguage');
         updateTranslation();
+        updateProjectCards();
     };
 }
 
@@ -24,11 +26,46 @@ const updateTranslation = function() {
     });
 }
 
+function createProjectCard(project) {
+    const card = document.createElement('div');
+    card.classList.add('project-card');
+
+    const title = document.createElement('h4');
+    title.innerText = project.title[currentLanguage];
+    card.appendChild(title);
+
+    const description = document.createElement('p');
+    description.innerText = project.description[currentLanguage];
+    card.appendChild(description);
+
+    const link = document.createElement('a');
+    link.innerText = project.linkText[currentLanguage];
+    link.href = project.repoLink;
+    card.appendChild(link);
+
+    return card;
+}
+
+function updateProjectCards() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        const project = projects[index];
+        const title = card.querySelector('h4');
+        const description = card.querySelector('p');
+        const link = card.querySelector('a');
+
+        title.innerText = project.title[currentLanguage];
+        description.innerText = project.description[currentLanguage];
+        link.innerText = project.linkText[currentLanguage];
+    });
+}
+
 const switchLanguage = function() {
     currentLanguage = sessionStorage.getItem('currentLanguage');
     this.innerHTML = showLanguageIcon(currentLanguage);
     currentLanguage = (currentLanguage === "fr" ?  "en" : "fr");
     updateTranslation();
+    updateProjectCards();
     sessionStorage.setItem("currentLanguage", currentLanguage);
 }
 
@@ -45,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const switcher = document.getElementById('language-switch');
     switcher.innerHTML = currentLanguage === "fr" ? englishFlag : frenchFlag;
     switcher.addEventListener('click', switchLanguage);
+
+    const personalProjectsContainer = document.getElementById('personal-projects-content');
+    projects.forEach(project => {
+        const projectCard = createProjectCard(project);
+        personalProjectsContainer.appendChild(projectCard);
+    });
 
     const openers = [...document.getElementsByClassName('opener')];
     openers.forEach(opener => {

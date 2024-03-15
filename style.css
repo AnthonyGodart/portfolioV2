@@ -180,6 +180,22 @@ main {
         max-height: 800px;
     }
 
+#personal-projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#personal-projects-content div{
+    background-color: var(--bg-transparency);
+    padding: 20px;
+    border-radius: 10px;
+}
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 #copyright{
     width: 100%;
     bottom: 0;
